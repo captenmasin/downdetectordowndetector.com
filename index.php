@@ -61,7 +61,7 @@ $code = getStatusCode($url);
     <?php endif; ?>
 
     <p>
-        Check for yourself at <a href="<?= $url ?>" class="underline"><?= $url ?></a>
+        Check for yourself at <a href="<?= $url ?>" target="_blank" class="underline"><?= $url ?></a>
     </p>
 
     <!-- Code: <?= $code ?>... 403 is technically up btw -->
