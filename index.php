@@ -59,9 +59,12 @@ $code = getStatusCode($url);
             Phew, Down Detector is up and running. All is well.
         </p>
     <?php endif; ?>
-    <p class="text-xs opacity-20">
-        <?= $code ?>
+
+    <p>
+        Check for yourself at <a href="<?= $url ?>" class="underline"><?= $url ?></a>
     </p>
+
+    <!-- Code: <?= $code ?>... 403 is technically up btw -->
 </div>
 </body>
 
