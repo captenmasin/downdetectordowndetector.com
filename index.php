@@ -4,7 +4,10 @@ include_once 'inc/helpers.php';
 $title = 'Down Detector Down Detector';
 $description = 'Down Detector Down Detector | Is Down Detector down? Check Down Detector status to see if Down Detector is down or if it is just you. D';
 
-$down = isWebsiteDown('https://downdetector.com');
+$url = 'https://downdetector.com';
+
+$down = isWebsiteDown($url);
+$code = getStatusCode($url);
 ?>
 
 <!doctype html>
@@ -56,6 +59,9 @@ $down = isWebsiteDown('https://downdetector.com');
             Phew, Down Detector is up and running. All is well.
         </p>
     <?php endif; ?>
+    <p class="text-xs opacity-20">
+        <?= $code ?>
+    </p>
 </div>
 </body>
 

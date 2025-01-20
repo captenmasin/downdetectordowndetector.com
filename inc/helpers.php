@@ -1,7 +1,6 @@
 <?php
 
-function isWebsiteDown($url) {
-    // Initialize cURL session
+function getStatusCode($url){
     $ch = curl_init($url);
 
     // Set cURL options
@@ -24,6 +23,11 @@ function isWebsiteDown($url) {
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
-    // Check if HTTP response code indicates success (200-399)
-    return $httpCode < 200 || $httpCode >= 400;
+    return $httpCode;
+}
+
+function isWebsiteDown($url) {
+    $httpCode = getStatusCode($url);
+
+    return ($httpCode < 200 || $httpCode >= 400) && $httpCode !== 403;
 }
