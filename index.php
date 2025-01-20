@@ -65,6 +65,12 @@ $code = getStatusCode($url);
     </p>
 
     <!-- Code: <?= $code ?>... 403 is technically up btw -->
+
+    <footer class="absolute bottom-2 left-0 w-full">
+        <p class="text-center text-zinc-800 dark:text-white text-xs">
+            <a href="https://masondoes.dev/" target="_blank" class="hover:underline">A Mason Production</a>
+        </p>
+    </footer>
 </div>
 </body>
 
