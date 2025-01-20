@@ -68,7 +68,7 @@ $code = getStatusCode($url);
 
     <footer class="absolute bottom-2 left-0 w-full">
         <p class="text-center text-zinc-800 dark:text-white text-xs">
-            <a href="https://masondoes.dev/" target="_blank" class="hover:underline">A Mason Production</a>
+            <a href="https://spacemancodes.ltd/" target="_blank" class="hover:underline">A SpacemanCodes Production</a>
         </p>
     </footer>
 </div>
