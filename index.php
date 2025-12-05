@@ -5,7 +5,9 @@ function isAccessible(string $url, int $timeout = 10): array
 {
     $ch = curl_init($url);
     curl_setopt_array($ch, [
-        CURLOPT_NOBODY        => true,
+        // Use a lightweight GET request because Downdetector returns 403 to HEAD
+        CURLOPT_NOBODY        => false,
+        CURLOPT_HTTPGET       => true,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
         CURLOPT_TIMEOUT        => $timeout,
