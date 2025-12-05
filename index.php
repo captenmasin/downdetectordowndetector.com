@@ -5,7 +5,6 @@ function isAccessible(string $url, int $timeout = 10): array
 {
     $ch = curl_init($url);
     curl_setopt_array($ch, [
-        // Use a lightweight GET request because Downdetector returns 403 to HEAD
         CURLOPT_NOBODY        => false,
         CURLOPT_HTTPGET       => true,
         CURLOPT_RETURNTRANSFER => true,
@@ -14,7 +13,7 @@ function isAccessible(string $url, int $timeout = 10): array
         CURLOPT_CONNECTTIMEOUT => $timeout,
         CURLOPT_SSL_VERIFYPEER => true,
         CURLOPT_SSL_VERIFYHOST => 2,
-        CURLOPT_USERAGENT      => 'Downdetector accessibility check',
+        CURLOPT_USERAGENT      => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
     ]);
 
     $body  = curl_exec($ch);
@@ -23,7 +22,7 @@ function isAccessible(string $url, int $timeout = 10): array
     curl_close($ch);
 
     return [
-        'ok'    => $body !== false && $code >= 200 && $code < 400,
+        'ok'    => $body !== false && (($code >= 200 && $code < 400) || $code === 403),
         'code'  => $code,
         'error' => $body === false ? $error : null,
     ];
